@@ -15,7 +15,7 @@ export const useCart = create<Store>((set) => ({
   items: [],
   addItem: (item) =>
     set((state) => {
-      let cloneDados = [...state.items];
+      const cloneDados = [...state.items];
       const existeItem = state.items.find(
         (i) => i.produtoId === item.produtoId
       );
