@@ -1,5 +1,4 @@
 import { Prisma } from "@/generated/prisma";
-import { Decimal } from "@/generated/prisma/runtime/library";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

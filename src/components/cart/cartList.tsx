@@ -5,11 +5,10 @@ import { useCart } from "@/store/cart";
 import { FormatDecimal } from "@/lib/utils";
 import { useProduto } from "@/store/produto";
 import { Button } from "../ui/button";
-import { useToken } from "@/store/auth";
 
 export const CartList = () => {
   const [subTotal, setSubTotal] = useState(0);
-  const [frete, setFrete] = useState(10);
+  const [frete] = useState(10);
   const { items } = useCart();
   const { produtos } = useProduto();
 
