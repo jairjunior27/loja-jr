@@ -10,6 +10,7 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "token" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
