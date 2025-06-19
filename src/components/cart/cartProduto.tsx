@@ -34,19 +34,28 @@ export const CartProduto = ({ dados }: prop) => {
   };
   return (
     <div className="flex flex-col items-center justify-center mb-4  ">
-      <div className="flex items-center justify-between  w-full">
-        <Image src={prod?.imagem} alt={prod?.name} width={40} height={40} />
-        <div className="flex text-sm truncate">
-          <h2 className="mx-2 font-bold text-gray-500 truncate">{prod.name}</h2>
-          <p className="text-sm font-semibold">{FormatDecimal(prod.preco)}</p>
+      <div className="flex items-center w-full">
+        <div className="w-[40px] sm:w-[60px]">
+          <Image src={prod?.imagem} alt={prod?.name} width="100" height="100" />
         </div>
+        <h2 className="mx-2 font-bold text-gray-500 truncate  text-sm">
+          {prod.name}
+        </h2>
+        <p className="text-sm font-semibold">{FormatDecimal(prod.preco)}</p>
       </div>
-      <div className="text-xs mt-2 text-center  w-full">
-        <Button className="mr-1" onClick={handleMinus}>
+
+      <div className="text-xs mt-1">
+        <Button
+          className="px-1 py-0.5 text-xs h-6 w-6 mr-1 "
+          onClick={handleMinus}
+        >
           -
         </Button>
         {qtd}
-        <Button className="ml-1" onClick={handlePlus}>
+        <Button
+          className="px-1 py-0.5 text-xs h-6 w-6 ml-1"
+          onClick={handlePlus}
+        >
           +
         </Button>
       </div>

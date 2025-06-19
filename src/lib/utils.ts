@@ -15,3 +15,9 @@ export const FormatDecimal = (preco: string | number | Prisma.Decimal) => {
     maximumFractionDigits: 2,
   });
 };
+
+export const checkFieldError = (fildName: string, errors: any) => {
+  if (errors === null) return false;
+  if (!errors[fildName]) return false;
+  return errors[fildName][0];
+};

@@ -3,19 +3,21 @@ import { FormatDecimal } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { useCart } from "@/store/cart";
+import { useToken } from "@/store/auth";
 
 type prop = {
   dados: Produto;
 };
 export const DadosItem = ({ dados }: prop) => {
-  const cart = useCart()
-
+  const cart = useCart();
+  const auth = useToken();
   const handleAddItem = () => {
-    cart.addItem({
-      produtoId: dados.id,
-      quantidade: 1
-    })
-
+    if (auth.token) {
+      cart.addItem({
+        produtoId: dados.id,
+        quantidade: 1,
+      });
+    }
   };
   return (
     <div className="flex flex-col items-center mb-6">
@@ -28,7 +30,12 @@ export const DadosItem = ({ dados }: prop) => {
           {dados.descricao}
         </p>
       </div>
-      <Button className="mt-4 text-xs cursor-pointer" onClick={handleAddItem}>
+      <Button
+        className={`${
+          auth.token ? "cursor-pointer" : "cursor-not-allowed"
+        } mt-4 text-xs `}
+        onClick={handleAddItem}
+      >
         Adcionar Carrinho
       </Button>
     </div>
